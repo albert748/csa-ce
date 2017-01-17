@@ -1,0 +1,6 @@
+oo10-base-cp-1.8.0.jar
+oo10-cloud-cp-1.8.2.jar
+oo10-hp-solutions-cp-1.7.0.jar
+oo10-virtualization-cp-1.8.0.jar
+oo10-sa-cp-1.2.2.jar
+oo10-sm-cp-1.0.3.jar
