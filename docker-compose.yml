@@ -4,7 +4,7 @@ services:
     image: hpsoftware/useitwithcsacodar:csadb
     container_name: commondb
     volumes:
-     - /src/share:/var/lib/postgresql
+     - csa_share:/var/lib/postgresql
     ports:
      - "15432:5432"
     command: bash -c "sleep 30 && service postgresql-9.5 start && tail -f /dev/null"
@@ -15,9 +15,9 @@ services:
     - dockerclient_hostname=vmhostname
     - dockerclient_ipaddress=vmipaddress
    volumes:
-    - /src/share:/share
+    - csa_share:/share
    ports:
-    - "18445:8443"
+    - "18443:8443"
   csa:
    image: hpsoftware/csa:latest
    container_name: csa
@@ -27,7 +27,7 @@ services:
     - proxy_host_name=proxyhost
     - proxy_port=proxyport
    volumes:
-    - /src/share:/share
+    - csa_share:/share
    ports:
     - "18444:8444"
     - "18089:8089"
@@ -36,3 +36,6 @@ services:
     - ooce
    command: /bin/bash -c  "sleep 120 && /tmp/csaconfig.sh && tail -f /dev/null"
 
+volumes:
+  csa_share:
+    external: false
